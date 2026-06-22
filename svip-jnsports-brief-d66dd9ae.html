@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>江南体育 · 水韵竞技</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+      background: linear-gradient(145deg, #f9e7d2 0%, #f3dbbf 35%, #e8cbaa 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem;
+      line-height: 1.7;
+      color: #2e241a;
+    }
+
+    .page-card {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255, 250, 242, 0.92);
+      backdrop-filter: blur(4px);
+      border-radius: 48px 24px 48px 24px;
+      box-shadow: 0 20px 40px -10px rgba(100, 60, 30, 0.25);
+      padding: 2.6rem 2.2rem 2.8rem;
+      transition: box-shadow 0.2s;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .page-card {
+        padding: 1.8rem 1.2rem 2rem;
+        border-radius: 32px 16px 32px 16px;
+      }
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 2.8rem;
+      border-bottom: 2px dashed #dcc6ae;
+      padding-bottom: 1.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 480;
+      letter-spacing: 3px;
+      background: linear-gradient(to right, #a17b5b, #7a5f44);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #7c6a57;
+      letter-spacing: 2px;
+      word-spacing: 4px;
+      margin-top: 0.2rem;
+      border-top: 1px solid #e3d4c2;
+      padding-top: 0.8rem;
+      display: inline-block;
+    }
+
+    .section {
+      margin: 2.2rem 0 2.6rem;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      border-left: 6px solid #bb9b7c;
+      padding-left: 0.9rem;
+      margin-bottom: 1.2rem;
+      color: #4d3827;
+      letter-spacing: 1px;
+    }
+
+    .section p {
+      margin: 0.75rem 0 1.1rem;
+      text-indent: 2em;
+      font-size: 1.05rem;
+      color: #3b2d20;
+    }
+
+    .scene-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1.4rem;
+    }
+
+    .scene-item {
+      flex: 1 1 200px;
+      background: #fef6ed;
+      border-radius: 30px 10px 30px 10px;
+      padding: 1.2rem 1rem;
+      box-shadow: 0 3px 10px rgba(150, 100, 60, 0.08);
+      border: 1px solid #ebdccc;
+    }
+
+    .scene-item strong {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 450;
+      color: #6f513b;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.5px;
+    }
+
+    .scene-item p {
+      text-indent: 0;
+      font-size: 0.95rem;
+      color: #4c3b2c;
+      margin: 0.2rem 0 0;
+    }
+
+    .faq-note {
+      background: #f2e3d4;
+      padding: 1.4rem 1.6rem;
+      border-radius: 30px 8px 30px 8px;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .faq-note summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #4b3727;
+      padding: 0.2rem 0;
+    }
+
+    .faq-note p {
+      margin-top: 0.8rem;
+      text-indent: 1.8em;
+      color: #3f3224;
+    }
+
+    .cta-line {
+      margin-top: 2.6rem;
+      text-align: center;
+      font-size: 1.1rem;
+      background: #f0ddcc;
+      padding: 1.4rem 0.8rem;
+      border-radius: 60px 12px 60px 12px;
+      border: 1px solid #dcc2ab;
+    }
+
+    .cta-line a {
+      color: #4e3523;
+      text-decoration: none;
+      font-weight: 480;
+      background: #fcf3e8;
+      padding: 0.3rem 1.6rem;
+      border-radius: 40px;
+      margin: 0 0.2rem;
+      transition: background 0.15s, box-shadow 0.15s;
+      border: 1px solid #cbb49d;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    .cta-line a:hover {
+      background: #f2e1ce;
+      box-shadow: 0 3px 8px rgba(130, 80, 40, 0.12);
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #7c6a58;
+      border-top: 1px solid #daccc0;
+      padding-top: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .footer-note span {
+      background: #e7d5c2;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e5d3c0;
+      margin: 1.4rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-card">
+    <!-- 首页横幅 / hero -->
+    <div class="hero">
+      <h1>江南体育</h1>
+      <div class="sub">⛵ 水泽 · 律动 · 日常</div>
+    </div>
+
+    <!-- 背景说明 -->
+    <section class="section">
+      <h2>水岸边的运动观念</h2>
+      <p>在江南，体育从不只是输赢和纪录。河道、廊桥、石阶、巷弄——这些日常的肌理早已刻下了另一种节奏。人们沿着水岸慢跑，在桥头拉伸，于古树下舒展身体；这些场景没有计时器，却有着绵长的呼吸。<a href="https://svip-jnsports.com" style="color:#5f4532;text-decoration:underline;text-underline-offset:3px;">江南体育</a>正是试图传递这种从容与坚持——一种与自然节拍合一的运动态度。它不强调超越，而是关注身体与环境的对话。</p>
+      <p style="text-indent:2em;">从清晨的拳操到傍晚的沿河骑行，体育在江南成为生活里的一抹淡彩，而非突兀的强音。这个平台记录的正是这样的片段：温和却持续，克制但真诚。</p>
+    </section>
+
+    <!-- 三段自然介绍 (特点 + 场景 + 提示) -->
+    <section class="section">
+      <h2>温润的竞技温度</h2>
+      <p>即便谈到竞技，江南的表达也带着特有的含蓄。这里的人们热衷羽毛球、游泳、传统射箭与龙舟，每一项运动都融入了水的灵性。不追求瞬间爆发，更看重耐力与协调——像是水纹的蔓延，不急不躁，却始终在前进。平台里收录了许多民间赛事和社区体育故事，它们不属于聚光灯，却构成了最真实的体育生态。</p>
+    </section>
+
+    <section class="section">
+      <h2>场地与日常</h2>
+      <div class="scene-grid">
+        <div class="scene-item">
+          <strong>沿河步道</strong>
+          <p>城市绿道与水道并行，晨跑者与散步者各自安好，偶尔驻足看水鸟。</p>
+        </div>
+        <div class="scene-item">
+          <strong>社区场馆</strong>
+          <p>旧厂房改造的羽毛球场、桥下的乒乓球台，体育发生在每个角落。</p>
+        </div>
+        <div class="scene-item">
+          <strong>水岸广场</strong>
+          <p>太极、轮滑、广场舞——不同年龄共享同一片场地，互不干扰。</p>
+        </div>
+      </div>
+      <p style="margin-top:1.2rem;">这些场景构成了江南体育的底色：不张扬，却充满生命力。没有标准化的器材，只有因地制宜的智慧。每一种运动都在这里找到自己的位置，如同水系自然分流。</p>
+    </section>
+
+    <!-- 类似FAQ摘要的浓缩提示 -->
+    <details class="faq-note">
+      <summary>关于「江南体育」的一些碎片 · · ·</summary>
+      <p>这里不制造神话，只呈现真实的运动日常。无论是民间高手还是初次尝试者，都能找到共鸣。内容围绕传统项目、城市空间、节气运动展开，偶尔也会聊聊体育与饮食、休憩的关系。提醒：运动前请根据自身情况热身，循序渐进。场地信息与活动通知均可在站内查阅。</p>
+    </details>
+
+    <hr>
+
+    <!-- 页尾访问提示 (自然嵌入链接) -->
+    <div class="cta-line">
+      在江南的节奏里，<a href="https://svip-jnsports.com">江南体育</a> 始终安静地陪伴着每一次伸展与呼吸。
+    </div>
+
+    <div class="footer-note">
+      <span>运动 · 日常 · 温和自律</span>
+      <p style="margin-top:1rem; font-size:0.75rem;">—— 水韵之城，步履不停 ——</p>
+    </div>
+  </div>
+</body>
+</html>
